@@ -91,6 +91,10 @@ udp_pad_index=
 # 0: Interpreter (slow), 1 (default): JIT (fast)
 use_cpu_jit =
 
+# The applied frameskip amount. Must be a power of two.
+# 0 (default): No frameskip, 1: x2 frameskip, 2: x4 frameskip, 3: x8 frameskip, etc.
+frame_skip =
+
 # Change the Clock Frequency of the emulated 3DS CPU.
 # Underclocking can increase the performance of the game at the risk of freezing.
 # Overclocking may fix lag that happens on console, but also comes with the risk of freezing.

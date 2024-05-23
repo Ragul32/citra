@@ -47,6 +47,10 @@ public:
                  Frontend::EmuWindow* secondary_window);
     ~GPU();
 
+    // Frame skip
+    static bool g_skip_frame;
+    static u64 frame_count;
+
     /// Sets the function to call for signalling GSP interrupts.
     void SetInterruptHandler(Service::GSP::InterruptHandler handler);
 
