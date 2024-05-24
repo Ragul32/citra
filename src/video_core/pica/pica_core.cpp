@@ -54,6 +54,8 @@ PicaCore::PicaCore(Memory::MemorySystem& memory_, std::shared_ptr<DebugContext> 
 PicaCore::~PicaCore() = default;
 
 void PicaCore::InitializeRegs() {
+    extern u64 frame_count;
+
     auto& framebuffer_top = regs.framebuffer_config[0];
     auto& framebuffer_sub = regs.framebuffer_config[1];
 
@@ -122,6 +124,8 @@ void PicaCore::ProcessCmdList(PAddr list, u32 size) {
 }
 
 void PicaCore::WriteInternalReg(u32 id, u32 value, u32 mask) {
+    extern bool g_skip_frame;
+
     if (id >= RegsInternal::NUM_REGS) {
         LOG_ERROR(
             HW_GPU,
