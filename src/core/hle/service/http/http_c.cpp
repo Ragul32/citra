@@ -836,23 +836,23 @@ void HTTP_C::CancelConnection(Kernel::HLERequestContext& ctx) {
     rb.Push(ResultSuccess);
 }
 
-#void HTTP_C::GetRequestState(Kernel::HLERequestContext& ctx) {
-#    IPC::RequestParser rp(ctx);
-#    const u32 context_handle = rp.Pop<u32>();
-#
-#    const auto* session_data = EnsureSessionInitialized(ctx, rp);
-#    if (!session_data) {
-#        return;
-#    }
-#
-#    LOG_DEBUG(Service_HTTP, "called, context_handle={}", context_handle);
-#
-#    Context& http_context = GetContext(context_handle);
-#
-#    IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
-#    rb.Push(ResultSuccess);
-#    rb.PushEnum<RequestState>(http_context.state);
-#}
+/* void HTTP_C::GetRequestState(Kernel::HLERequestContext& ctx) {
+    IPC::RequestParser rp(ctx);
+    const u32 context_handle = rp.Pop<u32>();
+
+    const auto* session_data = EnsureSessionInitialized(ctx, rp);
+    if (!session_data) {
+        return;
+    }
+
+    LOG_DEBUG(Service_HTTP, "called, context_handle={}", context_handle);
+
+    Context& http_context = GetContext(context_handle);
+
+    IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
+    rb.Push(ResultSuccess);
+    rb.PushEnum<RequestState>(http_context.state);
+} */
 
 void HTTP_C::AddRequestHeader(Kernel::HLERequestContext& ctx) {
     IPC::RequestParser rp(ctx);
